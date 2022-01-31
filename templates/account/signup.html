@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>サインイン</title>
+    <link href="{% static 'allauth/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+<h1>こんにちは</h1>
+<h3>サインイン</h3>
+<p>すでにアカウントをお持ちの方はこちらから<a href="{% url 'account_login' %}">ログイン</a>をしてください。</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="Form">
+        <div class="Form-Item">
+            <p class="Form-Item-Label">
+                <span class="Form-Item-Label-Required">必須</span>氏名
+            </p>
+            <input type="text" name="name" class="Form-Item-Input" placeholder="田中 太郎">
+        </div>
+        <div class="Form-Item">
+            <p class="Form-Item-Label">
+                <span class="Form-Item-Label-Required">必須</span>ふりがな
+            </p>
+            <input type="text" name="name_kana" class="Form-Item-Input" placeholder="たなか たろう">
+        </div>
+        <div class="Form-Item">
+            <p class="Form-Item-Label">
+                <span class="Form-Item-Label-Required">必須</span>メールアドレス
+            </p>
+            <input type="email" name="email" class="Form-Item-Input" placeholder="メールアドレス">
+        </div>
+        <div class="Form-Item">
+            <p class="Form-Item-Label">
+                <span class="Form-Item-Label-Required">必須</span>パスワード
+            </p>
+            <input type="password" name="password1" class="Form-Item-Input" placeholder="パスワード">
+        </div>
+        <ul>
+            <li>あなたの他の個人情報と似ているパスワードにはできません</li>
+            <li>パスワードは最低８文字必要です</li>
+            <li>よく使われるパスワードにはできません</li>
+            <li>数字だけのパスワードにはできません</li>
+        </ul>
+        <div class="Form-Item">
+            <p class="Form-Item-Label">
+                <span class="Form-Item-Label-Required">必須</span>パスワード(確認)
+            </p>
+            <input type="password" name="password2" class="Form-Item-Input" placeholder="確認のため再度入力してください。">
+        </div>
+        <button type="submit" class="Form-Btn">登録</button>
+    </div>
+
+</form>
+
+</body>
+</html>
